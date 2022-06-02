@@ -1,5 +1,5 @@
-﻿using ApiPedidosAprendiz.Data;
-using ApiPedidosAprendiz.Models;
+﻿using ApiPedidosAprendiz.Infra.Data;
+using ApiPedidosAprendiz.Infra.Models;
 using ApiPedidosAprendiz.Repositorios.Interfaces;
 using Dapper;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 
-namespace ApiPedidosAprendiz.Repositorios
+namespace ApiPedidosAprendiz.Infra.Repositorios
 {
     public class PedidoRepository : IPedidoRepository
     {

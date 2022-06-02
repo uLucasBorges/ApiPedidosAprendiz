@@ -1,4 +1,4 @@
-﻿namespace ApiPedidosAprendiz.Models
+﻿namespace ApiPedidosAprendiz.Infra.Models
 {
     public class Entidades
     {

@@ -1,5 +1,5 @@
-using ApiPedidosAprendiz.Data;
-using ApiPedidosAprendiz.Repositorios;
+using ApiPedidosAprendiz.Infra.Data;
+using ApiPedidosAprendiz.Infra.Repositorios;
 using ApiPedidosAprendiz.Repositorios.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);

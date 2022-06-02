@@ -1,4 +1,4 @@
-﻿using ApiPedidosAprendiz.Models;
+﻿using ApiPedidosAprendiz.Infra.Models;
 
 namespace ApiPedidosAprendiz.Repositorios.Interfaces
 {

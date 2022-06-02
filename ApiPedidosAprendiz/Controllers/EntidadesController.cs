@@ -1,4 +1,4 @@
-﻿using ApiPedidosAprendiz.Models;
+﻿using ApiPedidosAprendiz.Infra.Models;
 using ApiPedidosAprendiz.Repositorios.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 

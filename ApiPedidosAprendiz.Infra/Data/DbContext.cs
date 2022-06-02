@@ -1,7 +1,9 @@
 ﻿
 using System.Data;
 using System.Data.SqlClient;
-namespace ApiPedidosAprendiz.Data
+using Microsoft.Extensions.Configuration;
+
+namespace ApiPedidosAprendiz.Infra.Data
 {
 
     // minha conexao com o banco 

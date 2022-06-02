@@ -1,9 +1,9 @@
-﻿using ApiPedidosAprendiz.Data;
-using ApiPedidosAprendiz.Models;
+﻿using ApiPedidosAprendiz.Infra.Data;
+using ApiPedidosAprendiz.Infra.Models;
 using ApiPedidosAprendiz.Repositorios.Interfaces;
 using Dapper;
 
-namespace ApiPedidosAprendiz.Repositorios
+namespace ApiPedidosAprendiz.Infra.Repositorios
 {
     public class EntidadeRepository : IEntidadeRepository
     {
