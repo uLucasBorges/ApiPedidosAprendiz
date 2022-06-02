@@ -97,7 +97,7 @@ namespace ApiPedidosAprendiz.Repositorios
                 using (var conn = _db.Connection)
                 {
                     
-                    string command = @"INSERT INTO PedidosAprendiz(id,nome,categoria,preco) values(@Id,@Nome,@Categoria,@Preco)";
+                    string command = @"INSERT INTO PedidosAprendiz(nome,endereco,preco,entidade_id) values(@Nome,@Endereco,@Preco,@Entidade_id)";
 
                     var result = await conn.ExecuteAsync(sql: command, param: pedido);
                     return result;
@@ -116,7 +116,7 @@ namespace ApiPedidosAprendiz.Repositorios
             {
                 using (var conn = _db.Connection)
                 {
-                    string command = @"UPDATE PedidosAprendiz SET nome = @Nome , categoria = @Categoria, preco = @Preco WHERE id = @Id";
+                    string command = @"UPDATE PedidosAprendiz SET nome = @Nome , endereco = @Endereco, preco = @Preco , entidade_id = @Entidade_id WHERE id = @Id";
                     var result = await conn.ExecuteAsync(sql: command, param: pedido);
            
                      return result;

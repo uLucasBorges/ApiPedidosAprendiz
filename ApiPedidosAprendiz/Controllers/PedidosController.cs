@@ -74,7 +74,6 @@ namespace ApiPedidosAprendiz.Controllers
 
       
 
-
         [HttpPost]
         [Route("new")]
         public async Task<IActionResult> Novopedido(Pedidos pedido)
