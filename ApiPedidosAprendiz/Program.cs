@@ -1,5 +1,6 @@
 using ApiPedidosAprendiz.Data;
 using ApiPedidosAprendiz.Repositorios;
+using ApiPedidosAprendiz.Repositorios.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +13,8 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<DbContext>();
 builder.Services.AddScoped<IPedidoRepository, PedidoRepository>();
+builder.Services.AddScoped<IEntidadeRepository, EntidadeRepository>();
+
 
 var app = builder.Build();
 

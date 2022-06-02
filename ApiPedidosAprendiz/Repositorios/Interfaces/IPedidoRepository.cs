@@ -1,5 +1,6 @@
-﻿using ApiPedidosAprendiz.Data;
-namespace ApiPedidosAprendiz.Repositorios
+﻿using ApiPedidosAprendiz.Models;
+
+namespace ApiPedidosAprendiz.Repositorios.Interfaces
 {
     public interface IPedidoRepository
     {
@@ -10,6 +11,8 @@ namespace ApiPedidosAprendiz.Repositorios
         Task<int> NovoPedido(Pedidos novoPedido);
         Task<int> UpdatePedido(Pedidos atualizarPedidos);
         Task<int> DeletarPedido(int id);
+
+        Task<Pedidos> PedidosPorEntidade(int id);
 
 
     }
