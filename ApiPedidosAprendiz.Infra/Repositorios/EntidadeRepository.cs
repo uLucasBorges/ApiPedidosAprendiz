@@ -76,10 +76,18 @@ namespace ApiPedidosAprendiz.Infra.Repositorios
             {
                 using (var conn = _db.Connection)
                 {
-                    var cepEntidade = _cepService.GetAddressAsync(entidades.Cep);
-                   
+                    var cepClient = RestService.For<ICepService>("http://viacep.com.br");
+                    var resultcep = await cepClient.GetAddressAsync(entidades.Cep);
 
-                    string command = @"INSERT INTO EntidadesAprendiz(Nome,Endereco,Responsavel) values(@Nome,@ entidades.Logradouro,@Responsavel)";
+
+                    entidades.Bairro = resultcep.Bairro;
+                    entidades.Complemento = resultcep.Complemento;
+                    entidades.Localidade = resultcep.Localidade;
+                    entidades.Logradouro = resultcep.Logradouro;
+                    entidades.Uf = resultcep.Uf;
+                    
+
+                    string command = @"insert into EntidadesAprendiz(Nome,Responsavel,Cep,Logradouro,Bairro,Complemento,Localidade, Uf) values (@Nome,@Responsavel,@Cep,@Logradouro,@Bairro,@Complemento,@Localidade, @Uf)";
 
                     var result = await conn.ExecuteAsync(sql: command, param: entidades);
 
