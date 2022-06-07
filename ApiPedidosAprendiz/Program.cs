@@ -1,5 +1,6 @@
 using ApiPedidosAprendiz.Infra.Data;
 using ApiPedidosAprendiz.Infra.Repositorios;
+using ApiPedidosAprendiz.Infra.Repositorios.Interfaces;
 using ApiPedidosAprendiz.Repositorios.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,6 +15,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<DbContext>();
 builder.Services.AddScoped<IPedidoRepository, PedidoRepository>();
 builder.Services.AddScoped<IEntidadeRepository, EntidadeRepository>();
+builder.Services.AddScoped<ICepService, CepRepository>();
 
 
 var app = builder.Build();

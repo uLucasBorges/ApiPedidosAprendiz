@@ -21,10 +21,10 @@ namespace ApiPedidosAprendiz.Controllers
 
         [HttpGet]
         [Route("ListAll")]
-        public async Task<IActionResult> GetPedidos()
+        public async Task<IActionResult> GetPedidosAsync()
         {
-
-            var result = await _pedidoRepository.GetPedidos();
+            
+            var result = await _pedidoRepository.GetPedidosAsync();
             if(result != null)
             {
                 return Ok(result);
@@ -44,7 +44,7 @@ namespace ApiPedidosAprendiz.Controllers
         public async Task<IActionResult> PedidosPorEntidade(int id)
         {
 
-            var result = await _pedidoRepository.PedidosPorEntidade(id);
+            var result = await _pedidoRepository.PedidosPorEntidadeAsync(id);
             if (result != null)
             {
                 return Ok(result);
@@ -60,11 +60,11 @@ namespace ApiPedidosAprendiz.Controllers
         [Route("specific")]
         public async Task<IActionResult>PedidoById(int id)
         {
-                var resul = await _pedidoRepository.PedidoById(id);
+                var resul = await _pedidoRepository.PedidoByIdAsync(id);
                 if(resul != null)
                 {
                     return Ok(resul);
-            }
+                }
                 return BadRequest("NÃO FOI POSSIVEL LOCALIZAR ESSE ID EM NOSSA BASE DA DADOS !");
             
 
@@ -79,7 +79,7 @@ namespace ApiPedidosAprendiz.Controllers
         public async Task<IActionResult> Novopedido(Pedidos pedido)
         {
 
-                var resul = await _pedidoRepository.NovoPedido(pedido);
+                var resul = await _pedidoRepository.NovoPedidoAsync(pedido);
             if (pedido.Id <= 0 || pedido.Nome.Length <= 0 || pedido.Preco <= 0) 
             {
                 return BadRequest("Preencha corretamente");
@@ -95,7 +95,7 @@ namespace ApiPedidosAprendiz.Controllers
        [Route("rename")]
        public async Task<IActionResult> UpdatePedido(Pedidos pedido)
         {
-            var resul = await _pedidoRepository.UpdatePedido(pedido);
+            var resul = await _pedidoRepository.UpdatePedidoAsync(pedido);
             if (pedido.Id <= 0 ||pedido.Nome.Length <= 0 || pedido.Preco <= 0)
             {
                 return BadRequest("Preencha corretamente");
@@ -111,7 +111,7 @@ namespace ApiPedidosAprendiz.Controllers
         {
            
             
-                var resul = await _pedidoRepository.DeletarPedido(id);
+                var resul = await _pedidoRepository.DeletarPedidoAsync(id);
             if(resul != 0)
             {
                 return Ok("PEDIDO DELETADO ! !");

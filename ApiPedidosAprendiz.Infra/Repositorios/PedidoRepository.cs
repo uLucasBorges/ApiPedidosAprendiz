@@ -19,7 +19,7 @@ namespace ApiPedidosAprendiz.Infra.Repositorios
             _db = dbContext;
         }
 
-        public async Task<Pedidos> PedidosPorEntidade(int Id)
+        public async Task<Pedidos> PedidosPorEntidadeAsync(int Id)
         {
             try
             {
@@ -35,7 +35,7 @@ namespace ApiPedidosAprendiz.Infra.Repositorios
             }
             catch (Exception e)
             {
-                throw new Exception("Erro inesperadó");
+                throw new Exception ($"Ocorreu um Erro ao Buscar Os Pedidos {e.Message}");
             }
 
 
@@ -43,7 +43,7 @@ namespace ApiPedidosAprendiz.Infra.Repositorios
 
 
 
-        public async Task<List<Pedidos>> GetPedidos()
+        public async Task<List<Pedidos>> GetPedidosAsync()
         {
             try
             {
@@ -69,7 +69,7 @@ namespace ApiPedidosAprendiz.Infra.Repositorios
         }
 
 
-        public async Task<Pedidos> PedidoById(int Id)
+        public async Task<Pedidos> PedidoByIdAsync(int Id)
         {
             try
             {
@@ -89,7 +89,7 @@ namespace ApiPedidosAprendiz.Infra.Repositorios
                 
             
         }
-        public async Task<int> NovoPedido(Pedidos pedido)
+        public async Task<int> NovoPedidoAsync(Pedidos pedido)
         {
 
             try
@@ -110,7 +110,7 @@ namespace ApiPedidosAprendiz.Infra.Repositorios
             
         }
 
-        public async Task<int> UpdatePedido(Pedidos pedido)
+        public async Task<int> UpdatePedidoAsync(Pedidos pedido)
         {
             try
             {
@@ -130,7 +130,7 @@ namespace ApiPedidosAprendiz.Infra.Repositorios
             
         }
 
-        public async Task<int> DeletarPedido(int Id)
+        public async Task<int> DeletarPedidoAsync(int Id)
         {
             try
             {

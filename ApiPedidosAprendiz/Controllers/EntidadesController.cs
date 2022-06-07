@@ -21,7 +21,7 @@ namespace ApiPedidosAprendiz.Controllers
         public async Task<IActionResult> GetEntidades()
         {
 
-            var result = await _entidadeRepository.GetEntidades();
+            var result = await _entidadeRepository.GetEntidadesAsync();
             if (result != null)
             {
                 return Ok(result);
@@ -36,7 +36,7 @@ namespace ApiPedidosAprendiz.Controllers
             [Route("specific")]
             public async Task<IActionResult> PedidoById(int id)
             {
-                var resul = await _entidadeRepository.EntidadeById(id);
+                var resul = await _entidadeRepository.EntidadeByIdAsync(id);
                 if (resul != null)
                 {
                     return Ok(resul);
@@ -53,8 +53,8 @@ namespace ApiPedidosAprendiz.Controllers
             public async Task<IActionResult> NovaEntidade(Entidades entidades)
             {
 
-                var resul = await _entidadeRepository.NovaEntidade(entidades);
-                if (entidades.Responsavel.Length <= 0 || entidades.Nome.Length <= 0 || entidades.Endereco.Length <= 0)
+                var resul = await _entidadeRepository.NovaEntidadeAsync(entidades);
+                if (entidades.Responsavel.Length <= 0 || entidades.Nome.Length <= 0)
                 {
                     return BadRequest("Preencha corretamente");
                 }
@@ -69,8 +69,8 @@ namespace ApiPedidosAprendiz.Controllers
             [Route("rename")]
             public async Task<IActionResult> UpdatePedido(Entidades entidades)
             {
-                var resul = await _entidadeRepository.UpdateEntidade(entidades);
-                if (entidades.Responsavel.Length <= 0 || entidades.Nome.Length <= 0 || entidades.Endereco.Length <= 0)
+                var resul = await _entidadeRepository.UpdateEntidadeAsync(entidades);
+                if (entidades.Responsavel.Length <= 0 || entidades.Nome.Length <= 0)
                 {
                     return BadRequest("Preencha corretamente");
                 }
@@ -85,7 +85,7 @@ namespace ApiPedidosAprendiz.Controllers
             {
 
 
-                var resul = await _entidadeRepository.DeletarEntidade(id);
+                var resul = await _entidadeRepository.DeletarEntidadeAsync(id);
                 if (resul != 0)
                 {
                     return Ok("PEDIDO DELETADO ! !");

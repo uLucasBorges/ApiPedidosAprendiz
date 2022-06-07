@@ -6,13 +6,13 @@ namespace ApiPedidosAprendiz.Repositorios.Interfaces
     {
         // nome de todos os metodos esperados
 
-        Task<List<Pedidos>> GetPedidos();
-        Task<Pedidos> PedidoById(int id);
-        Task<int> NovoPedido(Pedidos novoPedido);
-        Task<int> UpdatePedido(Pedidos atualizarPedidos);
-        Task<int> DeletarPedido(int id);
+        Task<List<Pedidos>> GetPedidosAsync();
+        Task<Pedidos> PedidoByIdAsync(int id);
+        Task<int> NovoPedidoAsync(Pedidos novoPedido);
+        Task<int> UpdatePedidoAsync(Pedidos atualizarPedidos);
+        Task<int> DeletarPedidoAsync(int id);
 
-        Task<Pedidos> PedidosPorEntidade(int id);
+        Task<Pedidos> PedidosPorEntidadeAsync(int id);
 
 
     }

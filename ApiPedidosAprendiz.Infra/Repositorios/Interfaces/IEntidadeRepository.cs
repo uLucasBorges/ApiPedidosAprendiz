@@ -4,11 +4,11 @@ namespace ApiPedidosAprendiz.Repositorios.Interfaces
 {
     public interface IEntidadeRepository
     {
-        Task<List<Entidades>> GetEntidades();
-        Task<Entidades> EntidadeById(int id);
-        Task<int> NovaEntidade(Entidades novaEntidade);
-        Task<int> UpdateEntidade(Entidades novaEntidade);
-        Task<int> DeletarEntidade(int id);
+        Task<List<Entidades>> GetEntidadesAsync();
+        Task<Entidades> EntidadeByIdAsync(int id);
+        Task<int> NovaEntidadeAsync(Entidades novaEntidade);
+        Task<int> UpdateEntidadeAsync(Entidades novaEntidade);
+        Task<int> DeletarEntidadeAsync(int id);
 
 
 

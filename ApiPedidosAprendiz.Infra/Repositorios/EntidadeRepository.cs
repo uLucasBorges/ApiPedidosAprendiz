@@ -1,23 +1,28 @@
 ﻿using ApiPedidosAprendiz.Infra.Data;
 using ApiPedidosAprendiz.Infra.Models;
+using ApiPedidosAprendiz.Infra.Repositorios.Interfaces;
 using ApiPedidosAprendiz.Repositorios.Interfaces;
 using Dapper;
+using Refit;
 
 namespace ApiPedidosAprendiz.Infra.Repositorios
 {
     public class EntidadeRepository : IEntidadeRepository
     {
-
+        public ICepService _cepService;
         private DbContext _db;
-        public EntidadeRepository(DbContext dbContext)
+
+        public EntidadeRepository(DbContext dbContext ,ICepService cepService)
         {
             _db = dbContext;
+            _cepService = cepService;
         }
 
+      
 
+   
 
-
-        public async Task<List<Entidades>> GetEntidades()
+        public async Task<List<Entidades>> GetEntidadesAsync()
         {
             try
             {
@@ -43,7 +48,7 @@ namespace ApiPedidosAprendiz.Infra.Repositorios
         }
 
 
-        public async Task<Entidades> EntidadeById(int Id)
+        public async Task<Entidades> EntidadeByIdAsync(int Id)
         {
             try
             {
@@ -64,17 +69,20 @@ namespace ApiPedidosAprendiz.Infra.Repositorios
 
 
         }
-        public async Task<int> NovaEntidade(Entidades entidades)
+        public async Task<int> NovaEntidadeAsync(Entidades entidades)
         {
 
             try
             {
                 using (var conn = _db.Connection)
                 {
+                    var cepEntidade = _cepService.GetAddressAsync(entidades.Cep);
+                   
 
-                    string command = @"INSERT INTO EntidadesAprendiz(Nome,Endereco,Responsavel) values(@Nome,@Endereco,@Responsavel)";
+                    string command = @"INSERT INTO EntidadesAprendiz(Nome,Endereco,Responsavel) values(@Nome,@ entidades.Logradouro,@Responsavel)";
 
                     var result = await conn.ExecuteAsync(sql: command, param: entidades);
+
                     return result;
                 }
             }
@@ -85,7 +93,7 @@ namespace ApiPedidosAprendiz.Infra.Repositorios
 
         }
 
-        public async Task<int> UpdateEntidade(Entidades entidades)
+        public async Task<int> UpdateEntidadeAsync(Entidades entidades)
         {
             try
             {
@@ -105,7 +113,7 @@ namespace ApiPedidosAprendiz.Infra.Repositorios
 
         }
 
-        public async Task<int> DeletarEntidade(int Id)
+        public async Task<int> DeletarEntidadeAsync(int Id)
         {
             try
             {
